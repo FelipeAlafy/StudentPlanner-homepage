@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Planner - Roadmap</title>
+    <meta name="description" content="Próximos passos do desenvolvimento">
+    <meta name="keywords" content="student planner, organização acadêmica, app para estudantes, controle de notas, agenda universitária, android, kotlin, roadmap">
+    <meta name="author" content="Felipe Alafy">
+
+    <meta property="og:title" content="Student Planner - Roadmap">
+    <meta property="og:description" content="Visualização das futuras implementações que chegaram ao student planner">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentplanner.felipealafy.net/Roadmap.html">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../twaindConfig.js"></script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="RoadmapStyle.css"/>
+</head>
+<body class="antialiased overflow-x-hidden">
+<div class="glow-bg"></div>
+
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center sticky top-0 z-50 backdrop-blur-md bg-spDark/80 border-b border-slate-800 border-radius mt-4">
+    <div class="flex items-center gap-2">
+        <span class="text-2xl">🎓</span>
+        <a href="../index.html" class="flex items-center gap-1">
+            <span class="font-bold text-xl tracking-tight text-white hover:text-spBlue transition-colors">Student Planner</span>
+        </a>
+        <span class="text-slate-600 font-bold text-xl">|</span>
+        <span class="font-bold text-xl tracking-tight text-blue-400">Roadmap</span>
+    </div>
+
+    <div class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+        <a href="../index.html#features" class="hover:text-spBlue transition-colors">Funcionalidades</a>
+        <a href="../index.html#preview" class="hover:text-spBlue transition-colors">Progresso</a>
+    </div>
+
+    <a href="https://github.com/FelipeAlafy/StudentPlanner" target="_blank" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-sm font-bold transition-all text-white flex items-center gap-2">
+        ⭐ GitHub
+    </a>
+</nav>
+
+<header class="container mx-auto px-6 py-16 text-center">
+    <h1 class="text-5xl font-extrabold mb-6">Visão de Futuro</h1>
+    <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+        O Student Planner não é apenas um app, é um organismo em constante evolução técnica. Abaixo você encontra os marcos concluídos e o que estamos preparando para as próximas versões.
+    </p>
+</header>
+
+<main class="container mx-auto px-6 pb-24 relative timeline-line">
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="hidden md:block w-1/2"></div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-green-500 border-4 border-spDark z-10"></div>
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+            <div class="bg-spCard p-6 rounded-2xl border border-green-500/30 shadow-lg group-hover:border-green-500/60 transition-all">
+                <span class="text-[10px] font-bold text-green-400 uppercase tracking-widest px-2 py-1 bg-green-900/30 rounded-md">Concluído</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Student Planner v0.0.0-v1.0.5</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Implementação da base do projeto, mockups, telas, recursos gráficos, funcionalidades, lógica, Etc.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="hidden md:block w-1/2"></div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-green-500 border-4 border-spDark z-10"></div>
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+            <div class="bg-spCard p-6 rounded-2xl border border-green-500/30 shadow-lg group-hover:border-green-500/60 transition-all">
+                <span class="text-[10px] font-bold text-green-400 uppercase tracking-widest px-2 py-1 bg-green-900/30 rounded-md">Concluído (v1.0.6)</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Base Sólida e Android 17</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Implementação de Window Size Classes para suporte a telas grandes, migração de bibliotecas de data e licenciamento Apache 2.0.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+            <div class="bg-spCard p-6 rounded-2xl border border-blue-500/50 shadow-lg group-hover:border-spBlue transition-all">
+                <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest px-2 py-1 bg-blue-900/30 rounded-md">Em Desenvolvimento</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Injeção de Dependência</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Migração completa do Manual DI para <strong>Dagger Hilt</strong>, visando desacoplamento e facilidade na implementação de testes automatizados.</p>
+            </div>
+        </div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-spBlue border-4 border-spDark z-10 animate-pulse"></div>
+        <div class="hidden md:block w-1/2"></div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="hidden md:block w-1/2"></div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-slate-600 border-4 border-spDark z-10"></div>
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+            <div class="bg-spCard p-6 rounded-2xl border border-slate-700 shadow-lg group-hover:border-slate-500 transition-all">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-1 bg-slate-800 rounded-md">Q1 2026</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Conjunto de funcionalidades</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Implementar a lógica para acesso <strong class="text-white"> DetailedSubjectView</strong>.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Implementar o sistema de <strong class="text-white"> notificação de aulas</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="hidden md:block w-1/2"></div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-slate-600 border-4 border-spDark z-10"></div>
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+            <div class="bg-spCard p-6 rounded-2xl border border-slate-700 shadow-lg group-hover:border-slate-500 transition-all">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-1 bg-slate-800 rounded-md">Q2 2026</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Testing & QA Suite</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Implementação de JUnit 5 para Repositories e ViewModels, além de testes de UI com Compose Test Rule para garantir regressão zero.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal mb-12 group">
+        <div class="ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+            <div class="bg-spCard p-6 rounded-2xl border border-slate-700 shadow-lg group-hover:border-slate-500 transition-all">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-1 bg-slate-800 rounded-md">Futuro</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Desktop (KMP)</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Explorar o <strong>Kotlin Multiplatform</strong> para compartilhar a lógica de negócios com uma versão desktop nativa para Linux e Windows.</p>
+            </div>
+        </div>
+        <div class="absolute left-[11px] md:left-1/2 md:-ml-2.5 w-5 h-5 rounded-full bg-slate-700 border-4 border-spDark z-10"></div>
+        <div class="hidden md:block w-1/2"></div>
+    </div>
+
+</main>
+
+<footer class="container mx-auto px-6 py-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+    <p>&copy; <span id="year"></span> Felipe Alafy. MIT License.</p>
+    <div class="flex gap-6 mt-4 md:mt-0">
+        <a href="../index.html" class="hover:text-white transition-colors">Página Inicial</a>
+        <a href="https://github.com/FelipeAlafy/StudentPlanner" target="_blank" class="hover:text-white transition-colors">Repositório GitHub</a>
+    </div>
+</footer>
+
+<script src="RoadmapHandler.js"></script>
+</body>
+</html>
