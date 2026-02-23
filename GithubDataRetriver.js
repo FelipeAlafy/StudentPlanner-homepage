@@ -1,48 +1,56 @@
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const repoOwner = 'FelipeAlafy';
-const repoName = 'StudentPlanner';
-const releaseInfoContainer = document.getElementById('release-info');
-const downloadBtn = document.getElementById('download-btn');
-
+/**
+ * Busca a versão mais recente e o link direto do APK no GitHub.
+ */
 async function fetchLatestRelease() {
+    const repoOwner = 'FelipeAlafy';
+    const repoName = 'StudentPlanner';
+    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`;
+
+    const releaseInfoDiv = document.getElementById('release-info');
+    const downloadBtn = document.getElementById('download-btn');
+
     try {
-        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`);
+        const response = await fetch(apiUrl);
 
-        if (response.ok) {
-            const data = await response.json();
-            const version = data.tag_name;
-            const date = new Date(data.published_at).toLocaleDateString('pt-BR');
-            const apkAsset = data.assets.find(asset => asset.name.endsWith('.apk'));
-
-            if (apkAsset) {
-                releaseInfoContainer.innerHTML = `
-                            <div class="flex justify-between items-center text-left">
-                                <div>
-                                    <span class="block text-white font-bold text-lg">${version}</span>
-                                    <span class="block text-slate-400 text-xs">Publicado em: ${date}</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-slate-300 text-xs">${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB</span>
-                                    <span class="block text-green-400 font-bold text-xs">Versão Estável</span>
-                                </div>
-                            </div>
-                        `;
-                downloadBtn.href = apkAsset.browser_download_url;
-            } else {
-                throw new Error("APK não encontrado nos assets.");
-            }
-        } else {
-            throw new Error("Repositório sem releases ainda.");
+        if (!response.ok) {
+            throw new Error(`Erro na API do GitHub: ${response.status}`);
         }
+
+        const data = await response.json();
+
+        // Pega o nome da tag da versão (ex: "v1.0.0")
+        const versionName = data.tag_name;
+
+        // Procura dentro dos anexos (assets) o arquivo que termina com ".apk"
+        const apkAsset = data.assets.find(asset => asset.name.endsWith('.apk'));
+
+        if (apkAsset) {
+            // Atualiza o texto informando a versão
+            releaseInfoDiv.innerHTML = `
+                <div class="flex items-center justify-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <p class="text-green-400 font-bold text-sm">Versão ${versionName} pronta para download</p>
+                </div>
+            `;
+
+            // Troca o link do botão para o link de download direto do APK
+            downloadBtn.href = apkAsset.browser_download_url;
+
+            // Opcional: Adiciona o atributo download para forçar o comportamento de baixar
+            downloadBtn.setAttribute('download', apkAsset.name);
+
+        } else {
+            // Tratamento caso a release exista, mas o dev esqueceu de anexar o APK
+            releaseInfoDiv.innerHTML = `<p class="text-yellow-500 font-medium text-sm">Versão ${versionName} encontrada, mas o APK ainda não está disponível.</p>`;
+        }
+
     } catch (error) {
-        console.log("Fallback acionado para o fetch do GitHub:", error);
-        releaseInfoContainer.innerHTML = `
-                    <p class="text-slate-300 text-sm font-medium">Versões disponíveis no GitHub.</p>
-                    <p class="text-slate-500 text-xs mt-1">Clique no botão abaixo para verificar o repositório oficial.</p>
-                `;
+        console.error('Falha ao buscar dados do GitHub:', error);
+        // Fallback elegante caso a API falhe (ex: limite de requisições excedido ou sem internet)
+        releaseInfoDiv.innerHTML = `<p class="text-red-400 text-sm">Não foi possível carregar a versão automática.</p>`;
+        // O botão continuará com o href original apontando para a página "latest" do GitHub.
     }
 }
-fetchLatestRelease().then(r =>
-    console.log(r)
-);
+
+// Executa a função assim que o HTML terminar de ser carregado
+document.addEventListener('DOMContentLoaded', fetchLatestRelease);
